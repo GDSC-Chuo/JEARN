@@ -1,0 +1,10 @@
+---
+import Toppage from "./Toppage.astro";
+import Pageheding from "../components/Common/Pageheding.astro";
+
+const {title, subtitle, color} = Astro.props;
+---
+<Toppage>
+    <Pageheding title={title} subtitle={subtitle} color={color} />
+    <slot />
+</Toppage>
