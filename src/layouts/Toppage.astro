@@ -1,0 +1,22 @@
+---
+import Header from '../components/Common/Header.astro';
+import Footer from '../components/Common/Footer.astro';
+const {title} = Astro.props
+---
+<!doctype html>
+<html lang="ja">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width" />
+		<link rel="icon" type="" href="" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{title} | JEARN</title>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<slot />
+		</main>
+		<Footer />
+	</body>
+</html>
