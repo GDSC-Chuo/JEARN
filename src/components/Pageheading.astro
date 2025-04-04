@@ -1,6 +1,3 @@
----
-const { text, bgColor } = Astro.props;
----
 
 <!-- 凹面と文字についてのHTMLです -->
 <div class="page-heading" style={`background-color: ${bgColor};`}>
@@ -43,6 +40,6 @@ const { text, bgColor } = Astro.props;
   margin-top: -125px /* 文字の高さを調整できます */
   }
   /* 以下のように各ページにて上部でimport文を書き、body部分で文章を指定すればheadingを作れます */
-  /* import Pageheading from "../components/Common/Pageheading.astro"; */
+  /* import Pageheading from "../components/common/Pageheading.astro"; */
   /* <Pageheading text="Events / イベント情報" bgColor="#3BAC68" /> */
 </style>
