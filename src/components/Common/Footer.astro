@@ -1,3 +1,57 @@
----
+<footer>
+    <!-- フッターのHTMLです -->
+    <div class="footer-menu">
+    <img src="src/img/SDGs_logo.png" class="SDGsimg">
+        <ul class="footer-sns-list">
+            <!-- x・youtube・facebookのアイコンとハイパーリンクです -->
+           <li><a href="https://x.com/iearnusa"><img src="src/img/x_logo.png" height="30px" alt=""></a></li>
+           <li><a href="https://www.youtube.com/channel/UC0OE6_SFYoUb1Ct1gzO7FYw"><img src="src/img/youtube_logo.png" height="30px" alt=""></a></li>
+           <li><a href="https://www.facebook.com/npojearn"><img src="src/img/facebook_logo.png" height="30px" alt=""></a></li>
+        </ul>
+    </div>
+    <hr><!-- 棒線 -->
+    <div class="copyright">
+        <!-- 著作権表示です -->
+        <p>Copyright©JEARN</p>
+    </div>
+</footer>
+<style>
+    /* フッターのCSSです */
+    footer {
+        background-color: #3B4FAC;
+        color: white;
+        padding-top: 30px;
+        bottom:0;
+    }
 
----
+    /* SDGsのロゴのcssです */
+    .SDGsimg{
+        display: block;
+        width: 300px;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    li {
+    list-style: none;
+    }
+
+    /* SNS画像のcssです */
+    ul {
+    display: flex;
+    justify-content: center;
+    margin: 30px;
+    padding:0;
+    }
+
+    /* SNS画像の空白用のcssです */
+    li:nth-child(2) {
+        margin: 0 30px;
+    }
+
+    /* 著作権のcssです */
+    .copyright {
+        text-align: center;
+        font-size: 16px;
+    }
+</style>
