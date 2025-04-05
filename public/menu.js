@@ -10,7 +10,6 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // アイコンとテキストの切り替え
     if (!isOpen) {
-    if (!isOpen) {
       menuText.textContent = 'Close'; // テキストを"Close"に変更
       hbMenu.classList.add('open'); // ハンバーガーアイコンを"open"状態に
     } else {
