@@ -1,6 +1,6 @@
 ---
 import global from '../../styles/global.css'; // グローバルスタイルをインポートimport type { ACTION_ERROR_CODES } from 'astro:actions';
-
+import Menu from './Menu.astro'; // メニューコンポーネントをインポーネント
 ---
 
 <header>
@@ -49,22 +49,26 @@ import global from '../../styles/global.css'; // グローバルスタイルを�
 
         <!-- ハンバーガーメニュー -->
         <div class="menu hb-menu" id="hb-menu">
-            <div class="icon-area" id="hb-icon-area" >
+            <div class="icon-area" id="hb-icon-area">
                 <!-- ハンバーガーアイコン -->
                 <div class="hb-icon">
-                    <div class="hamburger">
+                    <div class="hamburger" id="hamburger-icon">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </div>
+                    <div class="close-icon"></div> <!-- ✕アイコン -->
                 </div>
                 <!-- メニューのテキスト -->
-                <p class="icon-text">Menu</p>
+                <p class="icon-text" id="menu-text">Menu</p> <!-- テキストを切り替える -->
             </div>
         </div>
     </div>
 </header>
 
+<Menu /> <!-- メニューコンポーネントをインポート -->
+
+<script type="module" src="/public/menu.js"></script>
 
 <style>
     /* ヘッダー全体のスタイル */
@@ -146,6 +150,7 @@ import global from '../../styles/global.css'; // グローバルスタイルを�
         align-items: center;
         width: 24px;
         height: 24px;
+        position: relative; /* 絶対位置指定のために必要 */
     }
     .hamburger {
         width: 85%;
@@ -215,4 +220,141 @@ import global from '../../styles/global.css'; // グローバルスタイルを�
         }
     }
 
+    /* ハンバーガーアイコンの状態切り替え（CSSトグル方式） */
+
+.close-icon {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  transition: opacity 0.2s ease;
+}
+
+/* 三本線ハンバーガーアイコン */
+/* .hamburger-icon::before,
+.hamburger-icon::after,
+.hamburger-icon div {
+  content: '';
+  display: block;
+  height: 3px;
+  width: 100%;
+  background: #333;
+  margin: 4px 0;
+  border-radius: 2px;
+} */
+.hamburger-icon {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* ✕アイコン */
+.close-icon {
+  font-size: 24px;
+  font-weight: bold;
+  color: #333;
+  text-align: center;
+  line-height: 24px;
+  opacity: 0;
+  pointer-events: none;
+}
+.close-icon::before {
+  content: "✕";
+}
+
+/* 状態トグルクラス */
+.open .hamburger-icon::before,
+.open .hamburger-icon::after,
+.open .hamburger-icon .bar {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+.open .hamburger::before,
+.open .hamburger::after,
+.open .hamburger .bar {
+  opacity: 0;
+  pointer-events: none;
+  display: none;
+}
+.open .close-icon {
+  opacity: 1;
+  pointer-events: auto;
+}
+.open .menu-label::before {
+  content: "Close";
+}
+.menu-label::before {
+  content: "Menu";
+}
+.menu-label {
+  font-size: 7px;
+}
+
+/* メニューのテキスト位置調整 */
+.icon-text {
+  margin-top: 5px;
+  font-size: 12px; /* 文字サイズ */
+  color: #333;
+  text-align: center;
+  white-space: nowrap;
+}
+
+/* アイコンとテキストの位置を揃える */
+.icon-area {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 8px;
+  width: fit-content;
+  cursor: pointer;
+}
+
+/* ハンバーガーアイコンのスタイル */
+.hamburger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 85%;
+    height: 85%;
+}
+
+.bar {
+    width: 100%;
+    height: 3px;
+    background-color: #333;
+    border-radius: 2px;
+}
+
+/* ✕アイコンのスタイル */
+.close-icon {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    line-height: 24px;
+    opacity: 0; /* 初期状態で非表示 */
+    pointer-events: none; /* 初期状態でクリック不可 */
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+.close-icon::before {
+    content: "✕"; /* バツマークを表示 */
+}
+
+/* 状態トグルクラス */
+.open .hamburger .bar {
+    display: none; /* ハンバーガーアイコンを非表示 */
+}
+.open .close-icon {
+    opacity: 1; /* ✕アイコンを表示 */
+    pointer-events: auto; /* クリック可能 */
+}
 </style>

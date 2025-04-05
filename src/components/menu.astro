@@ -1,4 +1,56 @@
----
+<section id="hamburger-menu" class="menu-panel hidden">
+  <ul class="accordion-menu">
+    <li>
+      <button class="accordion-toggle">活動紹介</button>
+      <ul class="submenu">
+        <li><a href="/activity1">イベント</a></li>
+        <li><a href="/activity2">プロジェクト</a></li>
+      </ul>
+    </li>
+    <li>
+      <button class="accordion-toggle">メンバー紹介</button>
+      <ul class="submenu">
+        <li><a href="/member1">学生メンバー</a></li>
+        <li><a href="/member2">サポーター</a></li>
+      </ul>
+    </li>
+  </ul>
+</section>
 
----
-<div><p>仮</p></div>
+<style>
+  .menu-panel {
+    background: #f9f9f9;
+    padding: 20px;
+    border-top: 1px solid #ccc;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  .accordion-menu {
+    list-style: none;
+    padding: 0;
+  }
+
+  .accordion-menu li {
+    margin-bottom: 10px;
+  }
+
+  .accordion-toggle {
+    background: none;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+  }
+
+  .submenu {
+    display: none;
+    list-style: none;
+    padding-left: 20px;
+  }
+
+  .submenu li {
+    margin-bottom: 5px;
+  }
+</style>
