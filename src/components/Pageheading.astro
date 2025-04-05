@@ -1,9 +1,9 @@
 ---
-const { text, bgColor } = Astro.props;
+const { pagetitle, bgcolor } = Astro.props;
 ---
 <!-- 凹面と文字についてのHTMLです -->
-<div class="page-heading" style={`background-color: ${bgColor};`}>
-  <h1>{text}</h1>
+<div class="page-heading" style={`background-color: ${bgcolor};`}>
+  <h1>{pagetitle}</h1>
   <div class="curve"></div>
 </div>
 

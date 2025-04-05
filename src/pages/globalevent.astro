@@ -1,6 +1,15 @@
 ---
-import Toppage from "../layouts/Toppage.astro";
----
-<Toppage>
+import BaseLayout from '../layouts/BaseLayout.astro';
 
-</Toppage>
+const pageInfo = {
+    // 検索エンジンの検索結果で表示されるタイトル（ headtitle + " | JEARN" で表示される）
+    headtitle: "",
+    // ページのタイトル（ページ内で表示される）
+    pagetitle: "",
+    // ページタイトルの背景色
+    bgcolor: "",
+};
+---
+<BaseLayout {...pageInfo}>
+
+</BaseLayout>
