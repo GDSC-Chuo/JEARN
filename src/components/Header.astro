@@ -1,3 +1,217 @@
 ---
+import global from '../../styles/global.css'; // グローバルスタイルをインポートimport type { ACTION_ERROR_CODES } from 'astro:actions';
 
 ---
+
+<header>
+    <!-- ロゴ設置 -->
+    <div class="jearn-logo">
+        <!-- ロゴをクリックするとホームに戻るリンク -->
+        <a href="/">
+            <img src="/src/img/jearn_logo.svg" alt="JEAEN Logo" class="jearn-logo"/>
+        </a>
+    </div>
+    
+    <!-- ナビゲーションメニュー -->
+    <div class="global-nav">
+        <!-- ニュースメニュー -->
+        <div class="menu" id="news">
+            <!-- ニュースのリンク -->
+            <a href="https://www.facebook.com/npojearn/?locale=ja_JP" target="_blank" class="icon-area">
+                <!-- アイコン -->
+                <img src="/src/img/news_icon.svg" alt="Facebook" class="news-logo">
+                <!-- アイコンの下のテキスト -->
+                <p class="icon-text">News</p>
+            </a>
+        </div> 
+
+        <!-- Join Usメニュー -->
+        <div class="menu" id="joinus">
+            <!-- 「Join us」のページへのリンク -->
+            <a href="/joinus" class="icon-area">
+                <!-- アイコン -->
+                <img src="/src/img/joinus_icon.svg" alt="Join us" class="join-logo">
+                <!-- アイコンの下のテキスト -->
+                <p class="icon-text">Join us</p>
+            </a>
+        </div>    
+
+        <!-- AI翻訳メニュー -->
+        <div class="menu" id="translate">
+            <!-- Google Translateへのリンク -->
+            <a href="https://translate.google.com/?hl=ja&sl=ja&tl=en&op=translate" class="icon-area">
+                <!-- アイコン -->
+                <img src="/src/img/translate_icon.svg" alt="Language" class="language-logo">
+                <!-- アイコンの下のテキスト -->
+                <p class="icon-text">AI Translation</p>
+            </a>
+        </div> 
+
+        <!-- ハンバーガーメニュー -->
+        <div class="menu hb-menu" id="hb-menu">
+            <div class="icon-area" id="hb-icon-area" >
+                <!-- ハンバーガーアイコン -->
+                <div class="hb-icon">
+                    <div class="hamburger">
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                        <span class="bar"></span>
+                    </div>
+                </div>
+                <!-- メニューのテキスト -->
+                <p class="icon-text">Menu</p>
+            </div>
+        </div>
+    </div>
+</header>
+
+
+<style>
+    /* ヘッダー全体のスタイル */
+    header {
+        display: flex; /* 子要素を横並びにする */
+        align-items: center; /* 子要素を縦方向に中央揃え */
+        padding: 5px;
+        padding-right: 0;
+        background-color: #fff; /* 背景色 */
+        /* 後で削除予定（ヘッダーの高さ確認のため使用） */
+        border-bottom: #333 solid 1px; /* 下線を追加 */
+    }
+
+    /* ロゴのスタイル */
+    .jearn-logo {
+        width: 100%;
+        max-width: 200px; /* ロゴの最大幅を設定 */
+    }
+
+    /* ナビゲーションメニューのスタイル */
+    .global-nav {
+        display: flex; /* 横並び */
+        justify-content: flex-end; /* 右側に配置 */
+        align-items: center; /* 縦方向に中央揃え */
+        width: 100%;
+    }
+
+    /* メニューの個別のスタイル */
+    .menu {
+        display: flex; 
+        flex-direction: column; /* 縦並び */
+        align-items: center;
+        justify-content: center;
+        position: relative;
+    }
+
+    /* メニュー間の仕切り線 */
+    .menu:not(:last-child)::after {
+        content: ""; /* 空の内容を追加 */
+        position: absolute;
+        right: 0;
+        top: 50%;
+        transform: translateY(-50%); /* 垂直中央に配置 */
+        width: 0.5px;
+        height: 60%;
+        background-color: #C4C4C4; /* 線の色をグレーに */
+    }
+
+    /* アイコンとテキストの配置 */
+    .icon-area {
+        display: flex; 
+        flex-direction: column;/* 縦並びにする */
+        padding: 10px;
+        width: fit-content; /* コンテンツに合わせた幅 */
+        align-items: center;
+        text-align: center;
+        text-decoration: none; /* リンクの下線を消す */
+        cursor: pointer; /* カーソルをポインターに */
+    }
+
+    /* メニューのアイコンサイズ調整 */
+    .menu img {
+        width: 24px;
+        height: 24px;
+    }
+
+    /* アイコンの下のテキスト */
+    .icon-text {
+        margin: 0;
+        font-size: 7px; /* 文字サイズ調整 */
+        white-space: nowrap; /* テキストを折り返さない */
+    }
+
+    /* ハンバーガーアイコンのスタイル */
+    .hb-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 24px;
+        height: 24px;
+    }
+    .hamburger {
+        width: 85%;
+        height: 85%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+        align-items: center;
+    }
+
+    /* ハンバーガーのバー */
+    .bar {
+        width: 100%;
+        height: 3px;
+        background-color: #333;
+        border-radius: 2px;
+    }
+
+    /* タブレットサイズでの調整 */
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        
+        .jearn-logo img {
+            width: 200px;
+            height: auto;
+        }
+
+        /* メニューアイコンのサイズ調整 */
+        .menu img, .hb-icon {
+            width: 28px;
+            height: 28px;
+        }
+        /* メニューアイコンのフォントサイズ調整 */
+
+        .icon-text {
+            font-size: 9px; 
+        }
+        /* アイコン同士の間隔調整 */
+        .icon-area {
+            padding: 12px;
+        }
+    }
+
+    /* PCサイズでの調整 */
+    @media screen and (min-width: 1025px) {
+        /* ロゴのサイズ調整 */
+        .jearn-logo img {
+            width: 300px;
+        }
+
+        /* メニューアイコンのサイズ調整 */
+        .menu img, .hb-icon {
+            width: 32px;
+            height: 32px;
+        }
+
+        /* メニューアイコンのフォントサイズ調整 */
+        .icon-text {
+            font-size: 15px; 
+        }
+        /* アイコン同士の間隔調整 */
+        .icon-area {
+            padding: 20px;
+        }
+
+        header {
+            padding-left: 20px; /* 左側のパディング(ロゴの前のスペース）を追加 */
+        }
+    }
+
+</style>
