@@ -1,6 +1,6 @@
 ---
 import global from '../../styles/global.css'; // グローバルスタイルをインポートimport type { ACTION_ERROR_CODES } from 'astro:actions';
-import Menu from './Menu.astro'; // メニューコンポーネントをインポーネント
+import Menu from './Menu.astro';  // メニューコンポーネントをインポーネント
 ---
 
 <header>
@@ -51,13 +51,13 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
         <div class="menu hb-menu" id="hb-menu">
             <div class="icon-area" id="hb-icon-area">
                 <!-- ハンバーガーアイコン -->
-                <div class="hb-icon">
-                    <div class="hamburger" id="hamburger-icon">
+                <div class="hb-icon-container" id="hb-icon-container">
+                    <div class="hb-icon" id="hb-icon">
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </div>
-                    <div class="close-icon"></div> <!-- ✕アイコン -->
+                    <div class="close-icon">✕</div> <!-- ✕アイコン -->
                 </div>
                 <!-- メニューのテキスト -->
                 <p class="icon-text" id="menu-text">Menu</p> <!-- テキストを切り替える -->
@@ -68,7 +68,7 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
 
 <Menu /> <!-- メニューコンポーネントをインポート -->
 
-<script type="module" src="/public/menu.js"></script>
+<script type="module" src="/menu.js" defer></script>
 
 <style>
     /* ヘッダー全体のスタイル */
@@ -78,8 +78,6 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
         padding: 5px;
         padding-right: 0;
         background-color: #fff; /* 背景色 */
-        /* 後で削除予定（ヘッダーの高さ確認のため使用） */
-        border-bottom: #333 solid 1px; /* 下線を追加 */
     }
 
     /* ロゴのスタイル */
@@ -137,22 +135,22 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
 
     /* アイコンの下のテキスト */
     .icon-text {
-        margin: 0;
+        margin-top: 5px;
         color: #333; /* 文字色 */
-        font-size: 7px; /* 文字サイズ調整 */
+        font-size: 10px; /* 文字サイズ調整 */
+        text-align: center;
         white-space: nowrap; /* テキストを折り返さない */
     }
 
     /* ハンバーガーアイコンのスタイル */
-    .hb-icon {
+    .hb-icon-container {
         display: flex;
         justify-content: center;
         align-items: center;
         width: 24px;
         height: 24px;
-        position: relative; /* 絶対位置指定のために必要 */
     }
-    .hamburger {
+    .hb-icon {
         width: 85%;
         height: 85%;
         display: flex;
@@ -169,8 +167,37 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
         border-radius: 2px;
     }
 
+    /* ✕アイコンのスタイル */
+.close-icon {
+    font-size: 24px; /* フォントサイズ */
+    font-weight: bold; /* 太字 */
+    color: #333; /* 文字色 */
+    text-align: center; /* テキストを中央揃え */
+    line-height: 24px; /* 行の高さ */
+    width: 100%; /* アイコンの幅 */
+    height: 100%; /* アイコンの高さ */
+    opacity: 0; /* 初期状態で非表示 */
+    pointer-events: none; /* 初期状態でクリック不可 */
+    position: absolute; /* 絶対位置指定 */
+    top: 68%; /* 必要に応じて調整 */
+    left: 50%; /* 水平方向の中央揃え */
+    transform: translate(-50%, -50%); /* 中央揃え */
+    transition: opacity 0.2s ease; /* スムーズな表示/非表示 */
+}
+
+
+/* 状態トグルクラス */
+.open .hb-icon .bar {
+    opacity: 0; /* ハンバーガーアイコンを非表示 */
+    pointer-events: none; /* クリック不可 */
+}
+.open .close-icon {
+    opacity: 1; /* ✕アイコンを表示 */
+    pointer-events: auto; /* クリック可能 */
+}
+
     /* タブレットサイズでの調整 */
-    @media screen and (min-width: 768px) and (max-width: 1024px) {
+    @media screen and (min-width: 480px) and (max-width: 1024px) {
         
         .jearn-logo img {
             width: 200px;
@@ -178,14 +205,20 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
         }
 
         /* メニューアイコンのサイズ調整 */
-        .menu img, .hb-icon {
+        .menu img, .hb-icon-container {
             width: 28px;
             height: 28px;
         }
+
+        .close-icon {
+            font-size: 28px;
+            line-height: 28px;
+        }
+
         /* メニューアイコンのフォントサイズ調整 */
 
         .icon-text {
-            font-size: 9px; 
+            font-size: 12px; 
         }
         /* アイコン同士の間隔調整 */
         .icon-area {
@@ -201,9 +234,14 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
         }
 
         /* メニューアイコンのサイズ調整 */
-        .menu img, .hb-icon {
+        .menu img, .hb-icon-container{
             width: 32px;
             height: 32px;
+        }
+
+        .close-icon {
+            font-size: 32px;
+            line-height: 32px;
         }
 
         /* メニューアイコンのフォントサイズ調整 */
@@ -219,142 +257,4 @@ import Menu from './Menu.astro'; // メニューコンポーネントをイン�
             padding-left: 20px; /* 左側のパディング(ロゴの前のスペース）を追加 */
         }
     }
-
-    /* ハンバーガーアイコンの状態切り替え（CSSトグル方式） */
-
-.close-icon {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  transition: opacity 0.2s ease;
-}
-
-/* 三本線ハンバーガーアイコン */
-/* .hamburger-icon::before,
-.hamburger-icon::after,
-.hamburger-icon div {
-  content: '';
-  display: block;
-  height: 3px;
-  width: 100%;
-  background: #333;
-  margin: 4px 0;
-  border-radius: 2px;
-} */
-.hamburger-icon {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  opacity: 1;
-  pointer-events: auto;
-}
-
-/* ✕アイコン */
-.close-icon {
-  font-size: 24px;
-  font-weight: bold;
-  color: #333;
-  text-align: center;
-  line-height: 24px;
-  opacity: 0;
-  pointer-events: none;
-}
-.close-icon::before {
-  content: "✕";
-}
-
-/* 状態トグルクラス */
-.open .hamburger-icon::before,
-.open .hamburger-icon::after,
-.open .hamburger-icon .bar {
-  opacity: 0;
-  pointer-events: none;
-  display: none;
-}
-.open .hamburger::before,
-.open .hamburger::after,
-.open .hamburger .bar {
-  opacity: 0;
-  pointer-events: none;
-  display: none;
-}
-.open .close-icon {
-  opacity: 1;
-  pointer-events: auto;
-}
-.open .menu-label::before {
-  content: "Close";
-}
-.menu-label::before {
-  content: "Menu";
-}
-.menu-label {
-  font-size: 7px;
-}
-
-/* メニューのテキスト位置調整 */
-.icon-text {
-  margin-top: 5px;
-  font-size: 12px; /* 文字サイズ */
-  color: #333;
-  text-align: center;
-  white-space: nowrap;
-}
-
-/* アイコンとテキストの位置を揃える */
-.icon-area {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  text-align: center;
-  padding: 8px;
-  width: fit-content;
-  cursor: pointer;
-}
-
-/* ハンバーガーアイコンのスタイル */
-.hamburger {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-    align-items: center;
-    width: 85%;
-    height: 85%;
-}
-
-.bar {
-    width: 100%;
-    height: 3px;
-    background-color: #333;
-    border-radius: 2px;
-}
-
-/* ✕アイコンのスタイル */
-.close-icon {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-    text-align: center;
-    line-height: 24px;
-    opacity: 0; /* 初期状態で非表示 */
-    pointer-events: none; /* 初期状態でクリック不可 */
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-}
-.close-icon::before {
-    content: "✕"; /* バツマークを表示 */
-}
-
-/* 状態トグルクラス */
-.open .hamburger .bar {
-    display: none; /* ハンバーガーアイコンを非表示 */
-}
-.open .close-icon {
-    opacity: 1; /* ✕アイコンを表示 */
-    pointer-events: auto; /* クリック可能 */
-}
 </style>
