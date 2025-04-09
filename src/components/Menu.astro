@@ -1,0 +1,284 @@
+<!-- メニューオーバーレイ（背景を覆う半透明の要素） -->
+<div class="menu-overlay hidden" id="menu-overlay"></div>
+
+<!-- メニューパネル（メインのメニューコンテンツを含むセクション） -->
+<section class="menu-panel hidden" id="menu-panel">
+	<!-- アコーディオンメニュー全体を囲むリスト -->
+	<ul class="accordion-menu">
+		<!-- メニュー項目: ホーム -->
+		<li class="menu-container">
+			<!-- ホームページへのリンク -->
+			<a href="/" class="accordion-toggle">Home / ホーム</a>
+		</li>
+
+		<!-- メニュー項目: About us / JEARNについて -->
+		<li class="menu-container">
+			<!-- サブメニューを開閉するボタン -->
+			<button class="accordion-toggle">
+				About us / JEARNについて
+				<!-- 矢印アイコン -->
+				<span class="arrow">＞</span>
+			</button>
+			<!-- サブメニューリスト -->
+			<ul class="submenu">
+				<!-- サブメニュー項目: JEARN -->
+				<li><a href="/jearn">JEARN</a></li>
+				<!-- サブメニュー項目: 理事長挨拶 -->
+				<li><a href="/rigicho">理事長挨拶</a></li>
+				<!-- サブメニュー項目: iEARN -->
+				<li><a href="/iearn">iEARN</a></li>
+			</ul>
+		</li>
+
+		<!-- メニュー項目: Global PBL / 国際協働学習 -->
+		<li class="menu-container">
+			<!-- サブメニューを開閉するボタン -->
+			<button class="accordion-toggle">
+				Global PBL / 国際協働学習
+				<!-- 矢印アイコン -->
+				<span class="arrow">＞</span>
+			</button>
+			<!-- サブメニューリスト -->
+			<ul class="submenu">
+				<!-- サブメニュー項目: 国際協働学習とは -->
+				<li><a href="/pbl">国際協働学習とは</a></li>
+				<!-- サブメニュー項目: プロジェクト一覧 -->
+				<li><a href="/project">プロジェクト一覧</a></li>
+			</ul>
+		</li>
+
+		<!-- メニュー項目: Gallery / ギャラリー -->
+		<li class="menu-container">
+			<!-- ギャラリーページへのリンク -->
+			<a href="/gallery" class="accordion-toggle">Gallery / ギャラリー</a>
+		</li>
+
+		<!-- メニュー項目: Publication / 出版物 -->
+		<li class="menu-container">
+			<!-- サブメニューを開閉するボタン -->
+			<button class="accordion-toggle">
+				Publication / 出版物
+				<!-- 矢印アイコン -->
+				<span class="arrow">＞</span>
+			</button>
+			<!-- サブメニューリスト -->
+			<ul class="submenu">
+				<!-- サブメニュー項目: オンラインジャーナル -->
+				<li><a href="/journal">オンラインジャーナル</a></li>
+				<!-- サブメニュー項目: 論文 -->
+				<li><a href="/paper">論文</a></li>
+			</ul>
+		</li>
+
+		<!-- メニュー項目: Events / イベント情報 -->
+		<li class="menu-container">
+			<!-- サブメニューを開閉するボタン -->
+			<button class="accordion-toggle">
+				Events / イベント情報
+				<!-- 矢印アイコン -->
+				<span class="arrow">＞</span>
+			</button>
+			<!-- サブメニューリスト -->
+			<ul class="submenu">
+				<!-- サブメニュー項目: News & Events -->
+				<li><a href="/event">News & Events</a></li>
+			</ul>
+		</li>
+
+		<!-- メニュー項目: Archives / アーカイブ -->
+		<li class="menu-container">
+			<!-- サブメニューを開閉するボタン -->
+			<button class="accordion-toggle">
+				Archives / アーカイブ
+				<!-- 矢印アイコン -->
+				<span class="arrow">＞</span>
+			</button>
+			<!-- サブメニューリスト -->
+			<ul class="submenu">
+				<!-- サブメニュー項目: シンポジウム -->
+				<li><a href="/symposium">シンポジウム</a></li>
+				<!-- サブメニュー項目: 国際イベント -->
+				<li><a href="/globalevent">国際イベント</a></li>
+				<!-- サブメニュー項目: 学習会 -->
+				<li><a href="/workshop">学習会</a></li>
+				<!-- サブメニュー項目: 記事・講演録 -->
+				<li><a href="/article">記事・講演録</a></li>
+				<!-- サブメニュー項目: プロジェクト -->
+				<li><a href="/previousproject">プロジェクト</a></li>
+			</ul>
+		</li>
+
+		<!-- メニュー項目: Join us / 入会申し込み + FAQ -->
+		<li class="menu-container">
+			<!-- サブメニューを開閉するボタン -->
+			<button class="accordion-toggle">
+				Join us / 入会申し込み + FAQ
+				<!-- 矢印アイコン -->
+				<span class="arrow">＞</span>
+			</button>
+			<!-- サブメニューリスト -->
+			<ul class="submenu">
+				<!-- サブメニュー項目: 入会申し込み -->
+				<li><a href="/joinus">入会申し込み</a></li>
+				<!-- サブメニュー項目: FAQ -->
+				<li><a href="/faq">FAQ</a></li>
+			</ul>
+		</li>
+
+		<!-- メニュー項目: Contact / 事務局へのお問い合わせ -->
+		<li class="menu-container">
+			<!-- 外部リンク（Googleフォーム） -->
+			<a
+				href="https://docs.google.com/forms/d/e/1FAIpQLSdlYnPmz2PLG7RJ-xQAqFJ7KKT9BsNmiGKWjkBV-ECuPpphXw/viewform"
+				target="_blank"
+				class="accordion-toggle">Contact / 事務局へのお問い合わせ</a
+			>
+		</li>
+	</ul>
+</section>
+
+<style>
+	.menu-panel {
+		/* メニュー全体のスタイル */
+		position: absolute; /* ページの上に重ねる */
+		top: 0; /* 上端に配置 */
+		right: 0; /* 右端に配置 */
+		width: 70vw; /* 横幅を画面の70%に設定 */
+		background: white; /* 背景色を白に設定 */
+		z-index: 1000; /* 他の要素より前面に表示 */
+		box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1); /* 軽い影を追加 */
+		display: none; /* 初期状態では非表示 */
+		align-items: right; /* 右寄せ */
+		box-sizing: border-box; /* パディングやボーダーを含むサイズ計算 */
+	}
+
+	.menu-panel.hidden {
+		/* hiddenクラスが付与された場合のスタイル */
+		display: none; /* 非表示にする */
+	}
+
+	.menu-panel.open {
+		/* openクラスが付与された場合のスタイル */
+		display: block; /* 表示する */
+	}
+
+	.hidden {
+		/* 汎用的な非表示クラス */
+		display: none;
+	}
+
+	.accordion-menu {
+		/* アコーディオンメニュー全体のスタイル */
+		list-style: none; /* リストマーカーを非表示 */
+		padding: 0; /* パディングをリセット */
+		margin: auto; /* 中央揃え */
+		font-size: 14px; /* フォントサイズを設定 */
+		width: 95%; /* 横幅を95%に設定 */
+		height: auto; /* 高さを自動調整 */
+		display: block; /* ブロック要素として表示 */
+	}
+
+	.accordion-toggle {
+		/* 各メニュー項目のスタイル */
+		color: #333; /* テキストカラー */
+		text-decoration: none; /* 下線を非表示 */
+		font-size: 14px; /* フォントサイズ */
+		border: 1px solid transparent; /* 境界線を透明に設定 */
+		text-align: center; /* テキストを中央揃え */
+		width: 100%; /* 横幅を100%に設定 */
+		height: 40px; /* 高さを40pxに設定 */
+		cursor: pointer; /* カーソルをポインターに変更 */
+		display: flex; /* フレックスボックスを使用 */
+		flex-shrink: 0; /* 子要素のサイズを固定 */
+		justify-content: space-between; /* 子要素を左右に配置 */
+		align-items: center; /* 子要素を中央揃え */
+		background-color: #f1f1f1; /* 背景色 */
+		border-top: 1px solid #c4c4c4; /* 上部に境界線を追加 */
+		padding: 0px 10px; /* 左右にパディングを設定 */
+		box-sizing: border-box; /* パディングやボーダーを含むサイズ計算 */
+	}
+
+	.accordion-toggle .arrow {
+		/* 矢印アイコンのスタイル */
+		transition: transform 0.3s ease; /* 回転アニメーションを追加 */
+	}
+
+	.accordion-toggle.open .arrow {
+		/* openクラスが付与された場合の矢印アイコンのスタイル */
+		transform: rotate(90deg); /* 矢印を90度回転 */
+	}
+
+	.submenu {
+		/* サブメニュー全体のスタイル */
+		display: none; /* 初期状態では非表示 */
+		list-style: none; /* リストマーカーを非表示 */
+		width: 100%; /* 横幅を100%に設定 */
+		height: auto; /* 高さを自動調整 */
+		padding: 0; /* パディングをリセット */
+	}
+
+	.submenu.open {
+		/* openクラスが付与された場合のサブメニューのスタイル */
+		display: block; /* 表示する */
+	}
+
+	.submenu li {
+		/* サブメニューの各項目のスタイル */
+		border-top: 1px solid #c4c4c4; /* 上部に境界線を追加 */
+		height: 40px; /* 高さを40pxに設定 */
+		display: flex; /* フレックスボックスを使用 */
+		align-items: center; /* 子要素を中央揃え */
+	}
+
+	.submenu li a {
+		/* サブメニュー内のリンクのスタイル */
+		text-decoration: none; /* 下線を非表示 */
+		color: #333; /* テキストカラー */
+		width: 100%; /* 横幅を100%に設定 */
+		height: 100%; /* 高さを100%に設定 */
+		padding: 0 24px; /* 左右にパディングを設定 */
+		display: flex; /* フレックスボックスを使用 */
+		align-items: center; /* 子要素を中央揃え */
+	}
+
+	.menu-overlay {
+		/* メニューオーバーレイのスタイル */
+		position: fixed; /* ページ全体を覆う */
+		top: 0; /* 上端に配置 */
+		left: 0; /* 左端に配置 */
+		right: 0; /* 右端に配置 */
+		bottom: 0; /* 下端に配置 */
+		background: rgba(217, 217, 217, 0.7); /* 半透明のグレー背景 */
+		z-index: 999; /* メニューの下、他の要素の上に表示 */
+		display: none; /* 初期状態では非表示 */
+	}
+
+	.menu-overlay.open {
+		/* openクラスが付与された場合のオーバーレイのスタイル */
+		display: block; /* 表示する */
+	}
+
+	/* タブレットサイズでの調整 */
+	@media screen and (min-width: 480px) and (max-width: 1024px) {
+		.accordion-toggle {
+			height: 60px; /* 高さを60pxに調整 */
+			font-size: 18px; /* フォントサイズを大きくする */
+		}
+		.submenu li {
+			height: 60px; /* サブメニューの高さを調整 */
+			font-size: 18px; /* フォントサイズを大きくする */
+		}
+	}
+
+	/* PCサイズでの調整 */
+	@media screen and (min-width: 1025px) {
+		.accordion-toggle {
+			height: 70px; /* 高さを70pxに調整 */
+			font-size: 20px; /* フォントサイズをさらに大きくする */
+		}
+		.submenu li {
+			height: 70px; /* サブメニューの高さを調整 */
+			font-size: 20px; /* フォントサイズをさらに大きくする */
+		}
+	}
+</style>
