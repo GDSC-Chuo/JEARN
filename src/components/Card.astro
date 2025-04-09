@@ -1,0 +1,46 @@
+---
+/*
+<Card>
+    <svg name="icon">...</svg>
+    <p>Title</p>
+    <p>Description</p>
+</Card>
+*/
+---
+
+<div class="card">
+	<div class="card-icon">
+		<slot name="icon" />
+	</div>
+	<div class="card-body">
+		<slot />
+	</div>
+</div>
+
+<style>
+	.card {
+		background-color: #f1f1f1;
+		border-radius: 1rem;
+		display: flex;
+		padding: 12px;
+		column-gap: 12px;
+	}
+
+	.card-icon {
+		height: 4rem;
+		width: 4rem;
+		display: flex;
+		place-self: center;
+	}
+
+	@media screen and (min-width: 480px) {
+		.card-icon {
+			height: 6rem;
+			width: 6rem;
+		}
+	}
+
+	.card-body {
+		flex-grow: 1;
+	}
+</style>
