@@ -1,259 +1,231 @@
 ---
-import Menu from './Menu.astro';  // メニューコンポーネントをインポーネント
+import Menu from "./Menu.astro"; // メニューコンポーネントをインポート
 ---
 
 <header>
-    <!-- ロゴ設置 -->
+    <!-- === ロゴエリア === -->
     <div class="jearn-logo">
-        <!-- ロゴをクリックするとホームに戻るリンク -->
-        <a href="/" class="jearn-logo">
-            <img src="/src/img/jearn_logo.svg" alt="JEAEN Logo" class="jearn-logo"/>
+        <!-- ホームリンク -->
+        <a href="/" class="logo-area">
+            <!-- ロゴ画像 -->
+            <img src="/src/img/jearn_logo.svg" alt="JEAEN Logo" class="jearn-logo-img" />
         </a>
     </div>
-    
-    <!-- ナビゲーションメニュー -->
+
+    <!-- === ナビゲーションメニューエリア === -->
     <div class="global-nav">
-        <!-- ニュースメニュー -->
+        <!-- === ニュースメニュー === -->
         <div class="menu" id="news">
-            <!-- ニュースのリンク -->
+            <!-- Facebookリンク -->
             <a href="https://www.facebook.com/npojearn/?locale=ja_JP" target="_blank" class="icon-area">
-                <!-- アイコン -->
-                <img src="/src/img/news_icon.svg" alt="Facebook" class="news-logo">
-                <!-- アイコンの下のテキスト -->
+                <!-- ニュースアイコン -->
+                <img src="/src/img/news_icon.svg" alt="Facebook" class="news-logo" />
+                <!-- ニューステキスト -->
                 <p class="icon-text">News</p>
             </a>
-        </div> 
+        </div>
 
-        <!-- Join Usメニュー -->
+        <!-- === Join Usメニュー === -->
         <div class="menu" id="joinus">
-            <!-- 「Join us」のページへのリンク -->
+            <!-- Join Usページリンク -->
             <a href="/joinus" class="icon-area">
-                <!-- アイコン -->
-                <img src="/src/img/joinus_icon.svg" alt="Join us" class="join-logo">
-                <!-- アイコンの下のテキスト -->
+                <!-- Join Usアイコン -->
+                <img src="/src/img/joinus_icon.svg" alt="Join us" class="join-logo" />
+                <!-- Join Usテキスト -->
                 <p class="icon-text">Join us</p>
             </a>
-        </div>    
+        </div>
 
-        <!-- AI翻訳メニュー -->
+        <!-- === AI翻訳メニュー === -->
         <div class="menu" id="translate">
-            <!-- Google Translateへのリンク -->
+            <!-- Google翻訳リンク -->
             <a href="https://translate.google.com/?hl=ja&sl=ja&tl=en&op=translate" class="icon-area">
-                <!-- アイコン -->
-                <img src="/src/img/translate_icon.svg" alt="Language" class="language-logo">
-                <!-- アイコンの下のテキスト -->
-                <p class="icon-text">AI Translation</p>
+                <!-- 翻訳アイコン -->
+                <img src="/src/img/translate_icon.svg" alt="Language" class="language-logo" />
+                <!-- 翻訳テキスト -->
+                <p class="icon-text">AI 翻訳</p>
             </a>
-        </div> 
+        </div>
 
-        <!-- ハンバーガーメニュー -->
+        <!-- === ハンバーガーメニュー === -->
         <div class="menu hb-menu" id="hb-menu">
             <div class="icon-area" id="hb-icon-area">
-                <!-- ハンバーガーアイコン -->
+                <!-- ハンバーガーアイコンコンテナ -->
                 <div class="hb-icon-container" id="hb-icon-container">
+                    <!-- ハンバーガーアイコン -->
                     <div class="hb-icon" id="hb-icon">
+                        <!-- ハンバーガーの3本線 -->
                         <span class="bar"></span>
                         <span class="bar"></span>
                         <span class="bar"></span>
                     </div>
-                    <div class="close-icon">✕</div> <!-- ✕アイコン -->
+                    <!-- ✕アイコン -->
+                    <div class="close-icon">✕</div>
                 </div>
-                <!-- メニューのテキスト -->
-                <p class="icon-text" id="menu-text">Menu</p> <!-- テキストを切り替える -->
+                <!-- メニューテキスト -->
+                <p class="icon-text" id="menu-text">Menu</p>
             </div>
         </div>
     </div>
 </header>
 
-<Menu /> <!-- メニューコンポーネントをインポート -->
+<!-- メニューコンポーネントをインポート -->
+<Menu />
 
+<!-- アコーディオンメニューを読み込み -->
 <script type="module" src="/menu.js" defer></script>
 
 <style>
-    /* ヘッダー全体のスタイル */
+    /* === ヘッダー全体のスタイル === */
     header {
+        width: 100%; /* ヘッダーの幅を100%に設定 */
+        height: auto; /* 高さを自動調整 */
         display: flex; /* 子要素を横並びにする */
         align-items: center; /* 子要素を縦方向に中央揃え */
-        padding: 5px;
-        padding-right: 0;
-        background-color: #fff; /* 背景色 */
+        padding: 5px; /* 全体の余白を設定 */
+        padding-top: 10px; /* 上部の余白を調整 */
+        background-color: #fff; /* 背景色を白に設定 */
+        z-index: 1001; /* 他の要素より前面に表示 */
+        position: sticky; /* スクロールしても上部に固定 */
+        top: 0; /* ページの上部に固定 */
+        justify-content: space-between; /* 子要素を左右に配置 */
     }
 
-    /* ロゴのスタイル */
+    /* === ロゴエリアのスタイル === */
     .jearn-logo {
-        width: 100%;
-        max-width: 200px; /* ロゴの最大幅を設定 */
+        display: flex; /* 子要素を横並びにする */
+        flex: 1; /* 横幅を100%に設定 */
+        align-items: flex-start; /* 子要素を上揃え */
+        padding-left: 10px; /* 左側の余白を設定 */
+    }
+    .jearn-logo-img {
+        display: block; /* ブロック要素として表示 */
+        margin: auto; /* 自動で中央揃え */
+        width: 100%; /* 幅を自動調整 */
+        height: clamp(40px, 12vw, 80px); /* 高さをレスポンシブに調整 */
     }
 
-    /* ナビゲーションメニューのスタイル */
+    /* === ナビゲーションメニューのスタイル === */
     .global-nav {
-        display: flex; /* 横並び */
-        justify-content: flex-end; /* 右側に配置 */
-        align-items: center; /* 縦方向に中央揃え */
-        width: 100%;
+        display: flex; /* 子要素を横並びにする */
+        flex: 1; /* 横幅を調整 */
+        justify-content: flex-end; /* 子要素を右揃え */
+        align-items: center; /* 子要素を縦方向に中央揃え */
+        max-width: 500px; /* 最大幅を設定 */
+        width: 100%; /* 幅を100%に設定 */
     }
 
-    /* メニューの個別のスタイル */
+    /* === メニューのスタイル === */
     .menu {
+        flex: 1; /* 横幅を調整 */
         display: flex; 
-        flex-direction: column; /* 縦並び */
-        align-items: center;
-        justify-content: center;
-        position: relative;
+        flex-direction: column; /* 子要素を縦並びにする */
+        align-items: center; /* 子要素を中央揃え */
+        position: relative; /* 相対位置を設定 */
+        padding: 0px 5px; /* 上下の余白を0に設定 */
+        width: fit-content; /* コンテンツに合わせた幅 */
+        max-width: 150px; /* 最大幅を設定 */
+        height: 100%; /* 高さを自動調整 */
     }
 
     /* メニュー間の仕切り線 */
     .menu:not(:last-child)::after {
         content: ""; /* 空の内容を追加 */
-        position: absolute;
-        right: 0;
-        top: 50%;
-        transform: translateY(-50%); /* 垂直中央に配置 */
-        width: 0.5px;
-        height: 60%;
-        background-color: #C4C4C4; /* 線の色をグレーに */
+        position: absolute; /* 絶対位置を設定 */
+        right: 0; /* 右端に配置 */
+        top: 50%; /* 垂直方向の中央に配置 */
+        transform: translateY(-50%); /* 中央揃え */
+        width: 0.5px; /* 線の幅 */
+        height: 60%; /* 線の高さ */
+        background-color: #C4C4C4; /* 線の色をグレーに設定 */
     }
 
-    /* アイコンとテキストの配置 */
+    /* === アイコンとテキストの配置 === */
     .icon-area {
         display: flex; 
-        flex-direction: column;/* 縦並びにする */
-        padding: 10px;
+        flex-direction: column; /* 子要素を縦並びにする */
+        padding: 3px; /* 内側の余白を設定 */
         width: fit-content; /* コンテンツに合わせた幅 */
-        align-items: center;
-        text-align: center;
+        height: clamp(24px, 12vw, 80px); /* 高さをレスポンシブに調整 */
+        align-items: center; /* 子要素を中央揃え */
+        justify-content: flex-end; /* 子要素を下揃え */
+        text-align: center; /* テキストを中央揃え */   
         text-decoration: none; /* リンクの下線を消す */
-        cursor: pointer; /* カーソルをポインターに */
+        cursor: pointer; /* カーソルをポインターに設定 */
     }
 
     /* メニューのアイコンサイズ調整 */
     .menu img {
-        width: 24px;
-        height: 24px;
+        display: block; /* ブロック要素として表示 */
+        margin: 0 auto; /* 自動で中央揃え */
+        width: clamp(24px, 5vw, 40px); /* 幅をレスポンシブに調整 */
+        height: clamp(24px, 5vw, 40px); /* 高さをレスポンシブに調整 */
+        object-fit: contain; /* アイコンの比率を維持 */
     }
 
     /* アイコンの下のテキスト */
     .icon-text {
-        margin-top: 5px;
-        color: #333; /* 文字色 */
-        font-size: 10px; /* 文字サイズ調整 */
-        text-align: center;
+        margin: 0; /* 余白をリセット */
+        color: #333; /* 文字色を設定 */
+        font-size: 12px; /* フォントサイズを設定 */
+        text-align: center; /* テキストを中央揃え */
         white-space: nowrap; /* テキストを折り返さない */
     }
 
-    /* ハンバーガーアイコンのスタイル */
+    /* === ハンバーガーメニューのスタイル === */
     .hb-icon-container {
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        width: 24px;
-        height: 24px;
+        display: flex; /* 子要素を横並びにする */
+        justify-content: center; /* 子要素を中央揃え */
+        align-items: center; /* 子要素を縦方向に中央揃え */
+        position: relative; /* 相対位置を設定 */
+        width: clamp(24px, 5vw, 40px); /* 幅をレスポンシブに調整 */
+        height: clamp(24px, 5vw, 40px); /* 高さをレスポンシブに調整 */
+        aspect-ratio: 1 / 1; /* 正方形にする */
     }
     .hb-icon {
-        width: 85%;
-        height: 85%;
-        display: flex;
-        flex-direction: column;
-        justify-content: space-around;
-        align-items: center;
+        width: 85%; /* ハンバーガーアイコンの幅 */
+        height: 85%; /* ハンバーガーアイコンの高さ */
+        display: flex; /* 子要素を横並びにする */
+        flex-direction: column; /* 子要素を縦並びにする */
+        justify-content: space-around; /* 子要素を均等に配置 */
+        align-items: center; /* 子要素を中央揃え */
     }
 
     /* ハンバーガーのバー */
-    .bar {
-        width: 100%;
-        height: 3px;
-        background-color: #333;
-        border-radius: 2px;
+    .hb-icon .bar {
+        width: 100%; /* 幅を100%に設定 */
+        height: 3px; /* 高さを設定 */
+        background-color: #333; /* 色を設定 */
+        border-radius: 2px; /* 角を丸くする */
     }
 
     /* ✕アイコンのスタイル */
-.close-icon {
-    font-size: 24px; /* フォントサイズ */
-    font-weight: bold; /* 太字 */
-    color: #333; /* 文字色 */
-    text-align: center; /* テキストを中央揃え */
-    line-height: 24px; /* 行の高さ */
-    width: 100%; /* アイコンの幅 */
-    height: 100%; /* アイコンの高さ */
-    opacity: 0; /* 初期状態で非表示 */
-    pointer-events: none; /* 初期状態でクリック不可 */
-    position: absolute; /* 絶対位置指定 */
-    top: 68%; /* 必要に応じて調整 */
-    left: 50%; /* 水平方向の中央揃え */
-    transform: translate(-50%, -50%); /* 中央揃え */
-    transition: opacity 0.2s ease; /* スムーズな表示/非表示 */
-}
-
-
-/* 状態トグルクラス */
-.open .hb-icon .bar {
-    opacity: 0; /* ハンバーガーアイコンを非表示 */
-    pointer-events: none; /* クリック不可 */
-}
-.open .close-icon {
-    opacity: 1; /* ✕アイコンを表示 */
-    pointer-events: auto; /* クリック可能 */
-}
-
-    /* タブレットサイズでの調整 */
-    @media screen and (min-width: 480px) and (max-width: 1024px) {
-        
-        .jearn-logo img {
-            width: 200px;
-            height: auto;
-        }
-
-        /* メニューアイコンのサイズ調整 */
-        .menu img, .hb-icon-container {
-            width: 28px;
-            height: 28px;
-        }
-
-        .close-icon {
-            font-size: 28px;
-            line-height: 28px;
-        }
-
-        /* メニューアイコンのフォントサイズ調整 */
-
-        .icon-text {
-            font-size: 12px; 
-        }
-        /* アイコン同士の間隔調整 */
-        .icon-area {
-            padding: 12px;
-        }
+    .close-icon {
+        position: absolute; /* 絶対位置を設定 */
+        top: 0; /* 上端に配置 */
+        left: 0; /* 左端に配置 */
+        display: flex; /* 子要素を横並びにする */
+        justify-content: center; /* 子要素を中央揃え */
+        align-items: center; /* 子要素を縦方向に中央揃え */
+        font-size: clamp(24px, 5vw, 40px); /* フォントサイズをレスポンシブに調整 */
+        font-weight: bold; /* 太字に設定 */
+        color: #333; /* 文字色を設定 */
+        text-align: center; /* テキストを中央揃え */
+        line-height: clamp(24px, 5vw, 40px); /* 行の高さをレスポンシブに調整 */
+        width: 100%; /* 幅を100%に設定 */
+        height: 100%; /* 高さを100%に設定 */
+        opacity: 0; /* 初期状態で非表示 */
+        pointer-events: none; /* 初期状態でクリック不可 */
+        transition: opacity 0.2s ease; /* スムーズな表示/非表示 */
     }
 
-    /* PCサイズでの調整 */
-    @media screen and (min-width: 1025px) {
-        /* ロゴのサイズ調整 */
-        .jearn-logo img {
-            width: 300px;
-        }
-
-        /* メニューアイコンのサイズ調整 */
-        .menu img, .hb-icon-container{
-            width: 32px;
-            height: 32px;
-        }
-
-        .close-icon {
-            font-size: 32px;
-            line-height: 32px;
-        }
-
-        /* メニューアイコンのフォントサイズ調整 */
-        .icon-text {
-            font-size: 15px; 
-        }
-        /* アイコン同士の間隔調整 */
-        .icon-area {
-            padding: 20px;
-        }
-
-        header {
-            padding-left: 20px; /* 左側のパディング(ロゴの前のスペース）を追加 */
-        }
+    /* === 状態トグルクラス === */
+    .open .hb-icon .bar {
+        opacity: 0; /* ハンバーガーアイコンを非表示 */
+        pointer-events: none; /* クリック不可 */
+    }
+    .open .close-icon {
+        opacity: 1; /* ✕アイコンを表示 */
+        pointer-events: auto; /* クリック可能 */
     }
 </style>
