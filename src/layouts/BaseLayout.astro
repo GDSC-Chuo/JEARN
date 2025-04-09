@@ -19,7 +19,7 @@ const { headtitle, pagetitle, bgcolor } = Astro.props;
 	<body>
 		<Header />
 		<main>
-			<Pageheading pagetitle={ pagetitle } bgcolor= { bgcolor } />
+			<Pageheading pagetitle={pagetitle} bgcolor={bgcolor} />
 			<slot />
 		</main>
 		<a href="#"><div class="pagetop">ページTOPへ</div></a>
@@ -28,21 +28,27 @@ const { headtitle, pagetitle, bgcolor } = Astro.props;
 </html>
 <style>
 	html {
-    scroll-behavior: smooth;
+		scroll-behavior: smooth;
 	}
-	
+
 	a {
 		outline: none;
 		text-decoration: none;
 	}
-	
-	a:link { color: #000; }
-	a:visited { color: #000; }
-	a:active { color: #000; }
-	
-	.pagetop{
+
+	a:link {
+		color: #000;
+	}
+	a:visited {
+		color: #000;
+	}
+	a:active {
+		color: #000;
+	}
+
+	.pagetop {
 		text-align: center;
-        font-size: 24px;
+		font-size: 24px;
 		padding-bottom: 15px;
 	}
 </style>

@@ -1,47 +1,48 @@
 ---
 const { pagetitle, bgcolor } = Astro.props;
 ---
+
 <!-- 凹面と文字についてのHTMLです -->
 <div class="page-heading" style={`background-color: ${bgcolor};`}>
-  <h1>{pagetitle}</h1>
-  <div class="curve"></div>
+	<h1>{pagetitle}</h1>
+	<div class="curve"></div>
 </div>
 
 <style>
-  /* heading全体のcssです */
-    .page-heading {
-  position: relative;
-  width: 100%;
-  height: 400px; /* 凹面の高さを調整できます */
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  color: white;
-  font-size: 1.25rem;
-  font-weight: 600;
-  overflow: hidden; /* はみ出し防止用です */
-  }
+	/* heading全体のcssです */
+	.page-heading {
+		position: relative;
+		width: 100%;
+		height: 400px; /* 凹面の高さを調整できます */
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		color: white;
+		font-size: 1.25rem;
+		font-weight: 600;
+		overflow: hidden; /* はみ出し防止用です */
+	}
 
-  /* headingの凹面部分のcssです */
-  .curve {
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  width: 100%;
-  height: 200px;
-  background-color: white;
-  border-top-left-radius: 100%;
-  border-top-right-radius: 100%;
-  z-index: 1;
-  }
+	/* headingの凹面部分のcssです */
+	.curve {
+		position: absolute;
+		bottom: -1px;
+		left: 0;
+		width: 100%;
+		height: 200px;
+		background-color: white;
+		border-top-left-radius: 100%;
+		border-top-right-radius: 100%;
+		z-index: 1;
+	}
 
-  /* headingの文字についてのcssです */
-  .page-heading h1 {
-  position: relative;
-  z-index: 2;
-  margin-top: -125px /* 文字の高さを調整できます */
-  }
-  /* 以下のように各ページにて上部でimport文を書き、body部分で文章を指定すればheadingを作れます */
-  /* import Pageheading from "../components/common/Pageheading.astro"; */
-  /* <Pageheading text="Events / イベント情報" bgColor="#3BAC68" /> */
+	/* headingの文字についてのcssです */
+	.page-heading h1 {
+		position: relative;
+		z-index: 2;
+		margin-top: -125px; /* 文字の高さを調整できます */
+	}
+	/* 以下のように各ページにて上部でimport文を書き、body部分で文章を指定すればheadingを作れます */
+	/* import Pageheading from "../components/common/Pageheading.astro"; */
+	/* <Pageheading text="Events / イベント情報" bgColor="#3BAC68" /> */
 </style>
