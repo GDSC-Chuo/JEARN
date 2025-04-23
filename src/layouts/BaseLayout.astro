@@ -20,7 +20,9 @@ const { headtitle, pagetitle, bgcolor } = Astro.props;
 		<Header />
 		<main>
 			<Pageheading pagetitle={pagetitle} bgcolor={bgcolor} />
-			<slot />
+			<div class="page-content">
+				<slot />
+			</div>
 		</main>
 		<a href="#"><div class="pagetop">ページTOPへ</div></a>
 		<Footer />
