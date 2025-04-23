@@ -40,24 +40,24 @@ a {
 	color: inherit; /* 親要素の色を継承 */
 }
 
-/* main内のリンクのスタイル */
-main a:link {
+/* main内とpagetopのリンクのスタイル */
+main a, .pagetop:link {
 	color: #3b4fac; /* リンクの色を青に設定 */
 	cursor: pointer; /* ポインタを表示 */
 	font-size: 1.2em; /* フォントサイズを1.2倍に設定 */
 	font-weight: 400; /* フォントの太さを通常に設定 */
 }
 
-main a:visited {
+main a :visited {
 	color: purple; /* 訪問済みリンクの色を紫に設定 */
 }
 
-main a:hover {
-	color: orange; /* ホバー時のリンクの色をオレンジに設定 */
+main a, .pagetop:hover {
+	color: red; /* ホバー時のリンクの色をオレンジに設定 */
 }
 
-main a:active {
-	color: red; /* アクティブ時のリンクの色を赤に設定 */
+main a, .pagetop:active {
+	color: black; /* アクティブ時のリンクの色を赤に設定 */
 }
 
 /* h1要素のスタイル設定 */
