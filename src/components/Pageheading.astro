@@ -1,46 +1,72 @@
 ---
-const { pagetitle, bgcolor } = Astro.props;
+const { pagetitle, bgcolor } = Astro.props; // ページタイトルと背景色をpropsから受け取る
 ---
 
 <!-- 凹面と文字についてのHTMLです -->
 <div class="page-heading" style={`background-color: ${bgcolor};`}>
-	<h1>{pagetitle}</h1>
+	<!-- 背景色を動的に設定 -->
+	<span class="page-title">{pagetitle}</span>
+	<!-- ページタイトルを表示 -->
 	<div class="curve"></div>
+	<!-- 凹面のデザイン部分 -->
 </div>
 
 <style>
 	/* heading全体のcssです */
 	.page-heading {
-		position: relative;
-		width: 100%;
-		height: 400px; /* 凹面の高さを調整できます */
-		display: flex;
-		align-items: center;
-		justify-content: center;
-		color: white;
-		font-size: 1.25rem;
-		font-weight: 600;
+		position: relative; /* 子要素の位置を基準にする */
+		width: 100%; /* 幅を100%に設定 */
+		height: 10.625rem; /*170px*/
+		display: flex; /* 子要素をフレックスボックスで配置 */
+		align-items: center; /* 子要素を縦方向に中央揃え */
+		justify-content: center; /* 子要素を横方向に中央揃え */
 		overflow: hidden; /* はみ出し防止用です */
 	}
 
 	/* headingの凹面部分のcssです */
 	.curve {
-		position: absolute;
-		bottom: -1px;
+		position: absolute; /* 親要素を基準に絶対位置を指定 */
+		bottom: -1.875rem; /* -30px */
 		left: 0;
-		width: 100%;
-		height: 200px;
-		background-color: white;
-		border-top-left-radius: 100%;
-		border-top-right-radius: 100%;
-		z-index: 1;
+		width: 100%; /* 幅を100%に設定 */
+		height: 6.25rem; /* 100px */
+		background-color: #fff; /* 凹面の色を指定できます */
+		border-top-left-radius: 100%; /* 左上を円形にする */
+		border-top-right-radius: 100%; /* 右上を円形にする */
+		z-index: 1; /* 重なり順を指定 */
 	}
 
 	/* headingの文字についてのcssです */
-	.page-heading h1 {
-		position: relative;
-		z-index: 2;
-		margin-top: -125px; /* 文字の高さを調整できます */
+	.page-title {
+		position: relative; /* 親要素を基準に相対位置を指定 */
+		z-index: 2; /* 凹面より前面に表示 */
+		margin: 0; /* marginをリセット */
+		color: #fff; /* 文字の色を指定できます */
+		font-size: clamp(
+			1.5rem,
+			0.955rem + 2.73vw,
+			3rem
+		); /* 文字の大きさを調整できます(24px~48pxの間でレスポンシブ) */
+		font-weight: 500; /* フォントの太さを指定 */
+		text-align: center; /* テキストを中央揃え */
+		transform: translateY(calc(50% - 3.125rem)); /* カーブ部分を考慮して中央揃え */
+	}
+
+	/* レスポンシブ対応 */
+	@media screen and (min-width: 600px) {
+		.page-heading {
+			height: 15.625rem; /* 250px */
+			height: clamp(15.625rem, 20vw, 21.825rem); /* 250px~350pxの間でレスポンシブ */
+		}
+
+		.curve {
+			bottom: -6.25rem; /* -100px */
+			height: 12.5rem; /* 200px */
+		}
+
+		.page-title {
+			transform: translateY(calc(50% - 5rem)); /* カーブ部分を考慮して調整 */
+		}
 	}
 	/* 以下のように各ページにて上部でimport文を書き、body部分で文章を指定すればheadingを作れます */
 	/* import Pageheading from "../components/common/Pageheading.astro"; */
