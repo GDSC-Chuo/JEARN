@@ -1,14 +1,15 @@
 ---
-import BaseLayout from "../layouts/BaseLayout.astro";
+import BaseLayout from '../layouts/BaseLayout.astro';
 
 const pageInfo = {
-	// 検索エンジンの検索結果で表示されるタイトル（ headtitle + " | JEARN" で表示される）
-	headtitle: "",
-	// ページのタイトル（ページ内で表示される）
-	pagetitle: "",
-	// ページタイトルの背景色
-	bgcolor: "",
+    // 検索エンジンの検索結果で表示されるタイトル（ headtitle + " | JEARN" で表示される）
+    headtitle: "",
+    // ページのタイトル（ページ内で表示される）
+    pagetitle: "",
+    // ページタイトルの背景色
+    bgcolor: "",
 };
 ---
+<BaseLayout {...pageInfo}>
 
-<BaseLayout {...pageInfo} />
+</BaseLayout>
