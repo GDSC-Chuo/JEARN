@@ -1,141 +1,111 @@
+---
+import menuData from "../data/menu.json";
+---
+
 <!-- メニューオーバーレイ（背景を覆う半透明の要素） -->
 <div class="menu-overlay hidden" id="menu-overlay"></div>
 
-<!-- メニューパネル（メインのメニューコンテンツを含むセクション） -->
+<!-- メニューパネル -->
 <section class="menu-panel hidden" id="menu-panel">
-	<!-- アコーディオンメニュー全体を囲むリスト -->
 	<ul class="accordion-menu">
-		<!-- メニュー項目: ホーム -->
-		<li class="menu-container">
-			<!-- ホームページへのリンク -->
-			<a href="/" class="accordion-toggle">Home / ホーム</a>
-		</li>
-
-		<!-- メニュー項目: About us / JEARNについて -->
-		<li class="menu-container">
-			<!-- サブメニューを開閉するボタン -->
-			<button class="accordion-toggle">
-				About us / JEARNについて
-				<!-- 矢印アイコン -->
-				<span class="arrow">＞</span>
-			</button>
-			<!-- サブメニューリスト -->
-			<ul class="submenu">
-				<!-- サブメニュー項目: JEARN -->
-				<li><a href="/jearn">JEARN</a></li>
-				<!-- サブメニュー項目: 理事長挨拶 -->
-				<li><a href="/rigicho">理事長挨拶</a></li>
-				<!-- サブメニュー項目: iEARN -->
-				<li><a href="/iearn">iEARN</a></li>
-			</ul>
-		</li>
-
-		<!-- メニュー項目: Global PBL / 国際協働学習 -->
-		<li class="menu-container">
-			<!-- サブメニューを開閉するボタン -->
-			<button class="accordion-toggle">
-				Global PBL / 国際協働学習
-				<!-- 矢印アイコン -->
-				<span class="arrow">＞</span>
-			</button>
-			<!-- サブメニューリスト -->
-			<ul class="submenu">
-				<!-- サブメニュー項目: 国際協働学習とは -->
-				<li><a href="/pbl">国際協働学習とは</a></li>
-				<!-- サブメニュー項目: プロジェクト一覧 -->
-				<li><a href="/project">プロジェクト一覧</a></li>
-			</ul>
-		</li>
-
-		<!-- メニュー項目: Gallery / ギャラリー -->
-		<li class="menu-container">
-			<!-- ギャラリーページへのリンク -->
-			<a href="/gallery" class="accordion-toggle">Gallery / ギャラリー</a>
-		</li>
-
-		<!-- メニュー項目: Publication / 出版物 -->
-		<li class="menu-container">
-			<!-- サブメニューを開閉するボタン -->
-			<button class="accordion-toggle">
-				Publication / 出版物
-				<!-- 矢印アイコン -->
-				<span class="arrow">＞</span>
-			</button>
-			<!-- サブメニューリスト -->
-			<ul class="submenu">
-				<!-- サブメニュー項目: オンラインジャーナル -->
-				<li><a href="/journal">オンラインジャーナル</a></li>
-				<!-- サブメニュー項目: 論文 -->
-				<li><a href="/paper">論文</a></li>
-			</ul>
-		</li>
-
-		<!-- メニュー項目: Events / イベント情報 -->
-		<li class="menu-container">
-			<!-- サブメニューを開閉するボタン -->
-			<button class="accordion-toggle">
-				Events / イベント情報
-				<!-- 矢印アイコン -->
-				<span class="arrow">＞</span>
-			</button>
-			<!-- サブメニューリスト -->
-			<ul class="submenu">
-				<!-- サブメニュー項目: News & Events -->
-				<li><a href="/event">News & Events</a></li>
-			</ul>
-		</li>
-
-		<!-- メニュー項目: Archives / アーカイブ -->
-		<li class="menu-container">
-			<!-- サブメニューを開閉するボタン -->
-			<button class="accordion-toggle">
-				Archives / アーカイブ
-				<!-- 矢印アイコン -->
-				<span class="arrow">＞</span>
-			</button>
-			<!-- サブメニューリスト -->
-			<ul class="submenu">
-				<!-- サブメニュー項目: シンポジウム -->
-				<li><a href="/symposium">シンポジウム</a></li>
-				<!-- サブメニュー項目: 国際イベント -->
-				<li><a href="/globalevent">国際イベント</a></li>
-				<!-- サブメニュー項目: 学習会 -->
-				<li><a href="/workshop">学習会</a></li>
-				<!-- サブメニュー項目: 記事・講演録 -->
-				<li><a href="/article">記事・講演録</a></li>
-				<!-- サブメニュー項目: プロジェクト -->
-				<li><a href="/previousproject">プロジェクト</a></li>
-			</ul>
-		</li>
-
-		<!-- メニュー項目: Join us / 入会申し込み + FAQ -->
-		<li class="menu-container">
-			<!-- サブメニューを開閉するボタン -->
-			<button class="accordion-toggle">
-				Join us / 入会申し込み + FAQ
-				<!-- 矢印アイコン -->
-				<span class="arrow">＞</span>
-			</button>
-			<!-- サブメニューリスト -->
-			<ul class="submenu">
-				<!-- サブメニュー項目: 入会申し込み -->
-				<li><a href="/joinus">入会申し込み</a></li>
-				<!-- サブメニュー項目: FAQ -->
-				<li><a href="/faq">FAQ</a></li>
-			</ul>
-		</li>
-
-		<!-- メニュー項目: Contact / 事務局へのお問い合わせ -->
-		<li class="menu-container">
-			<!-- 外部リンク（Googleフォーム） -->
-			<a
-				href="https://docs.google.com/forms/d/e/1FAIpQLSdlYnPmz2PLG7RJ-xQAqFJ7KKT9BsNmiGKWjkBV-ECuPpphXw/viewform"
-				target="_blank"
-				class="accordion-toggle">Contact / 事務局へのお問い合わせ</a
-			>
-		</li>
+		{
+			menuData.map((item) => (
+				<li class="menu-container">
+					{item.submenu ? (
+						<>
+							<button class="accordion-toggle">
+								{item.label}
+								<span class="arrow">＞</span>
+							</button>
+							<ul class="submenu">
+								{item.submenu.map((sub) => (
+									<li>
+										<a href={sub.link}>{sub.label}</a>
+									</li>
+								))}
+							</ul>
+						</>
+					) : (
+						<a
+							href={item.link}
+							class="accordion-toggle"
+							target={item.external ? "_blank" : undefined}
+							rel={item.external ? "noopener noreferrer" : undefined}
+						>
+							{item.label}
+						</a>
+					)}
+				</li>
+			))
+		}
 	</ul>
 </section>
+
+<script type="module" defer>
+	document.addEventListener("DOMContentLoaded", () => {
+		// ハンバーガーメニュー全体をクリックするエリア（hb-icon-area が無ければ hb-menu を代替）
+		const hbIconArea =
+			document.getElementById("hb-icon-area") || document.getElementById("hb-menu");
+		// メニュー全体のパネル
+		const menuPanel = document.getElementById("menu-panel");
+		// メニューのテキスト部分（任意）
+		const menuText = document.getElementById("menu-text");
+		// ハンバーガーメニューのアイコン部分（見た目用）
+		const hbMenu = document.getElementById("hb-menu");
+		// ページ上部のヘッダー要素（高さ計算用）
+		const header = document.querySelector("header");
+		// メニューを開いたときに表示される背景のオーバーレイ
+		const menuOverlay = document.getElementById("menu-overlay");
+
+		// 必要な要素が揃っていない場合は安全に終了（デバッグ用警告）
+		if (!menuPanel || !menuOverlay || !hbIconArea) {
+			console.warn("Menu init aborted: missing elements", {
+				menuPanel,
+				menuOverlay,
+				hbIconArea,
+			});
+			return;
+		}
+
+		// メニューパネルの top をヘッダー高さに合わせる
+		const adjustMenuPanelPosition = () => {
+			const headerHeight = header ? header.offsetHeight : 0;
+			menuPanel.style.top = `${headerHeight}px`;
+		};
+
+		adjustMenuPanelPosition();
+		window.addEventListener("resize", adjustMenuPanelPosition);
+
+		// ハンバーガーメニュークリックで開閉
+		hbIconArea.addEventListener("click", () => {
+			const isOpen = menuPanel.classList.toggle("open");
+			if (menuText) menuText.textContent = isOpen ? "Close" : "Menu";
+			if (hbMenu) hbMenu.classList.toggle("open", isOpen);
+			menuOverlay.classList.toggle("open", isOpen);
+		});
+
+		// アコーディオン：button のみトグル、a は通常遷移
+		document.querySelectorAll(".accordion-toggle").forEach((el) => {
+			if (el.tagName && el.tagName.toLowerCase() === "button") {
+				el.addEventListener("click", () => {
+					const submenu = el.nextElementSibling;
+					if (submenu) {
+						submenu.classList.toggle("open");
+						el.classList.toggle("open");
+					}
+				});
+			}
+		});
+
+		// オーバーレイをクリックでメニューを閉じる
+		menuOverlay.addEventListener("click", () => {
+			menuPanel.classList.remove("open");
+			menuOverlay.classList.remove("open");
+			if (hbMenu) hbMenu.classList.remove("open");
+			if (menuText) menuText.textContent = "Menu";
+		});
+	});
+</script>
 
 <style>
 	.menu-panel {

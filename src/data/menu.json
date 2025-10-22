@@ -1,0 +1,58 @@
+[
+	{
+		"label": "Home / ホーム",
+		"link": "/"
+	},
+	{
+		"label": "About us / JEARNについて",
+		"submenu": [
+			{ "label": "JEARN", "link": "/jearn" },
+			{ "label": "理事長挨拶", "link": "/rigicho" },
+			{ "label": "iEARN", "link": "/iearn" }
+		]
+	},
+	{
+		"label": "Global PBL / 国際協働学習",
+		"submenu": [
+			{ "label": "国際協働学習とは", "link": "/pbl" },
+			{ "label": "プロジェクト一覧", "link": "/project" }
+		]
+	},
+	{
+		"label": "Gallery / ギャラリー",
+		"link": "/gallery"
+	},
+	{
+		"label": "Publication / 出版物",
+		"submenu": [
+			{ "label": "オンラインジャーナル", "link": "/journal" },
+			{ "label": "論文", "link": "/paper" }
+		]
+	},
+	{
+		"label": "Events / イベント情報",
+		"submenu": [{ "label": "News & Events", "link": "/event" }]
+	},
+	{
+		"label": "Archives / アーカイブ",
+		"submenu": [
+			{ "label": "シンポジウム", "link": "/symposium" },
+			{ "label": "国際イベント", "link": "/globalevent" },
+			{ "label": "学習会", "link": "/workshop" },
+			{ "label": "記事・講演録", "link": "/article" },
+			{ "label": "プロジェクト", "link": "/previousproject" }
+		]
+	},
+	{
+		"label": "Join us / 入会申し込み + FAQ",
+		"submenu": [
+			{ "label": "入会申し込み", "link": "/joinus" },
+			{ "label": "FAQ", "link": "/faq" }
+		]
+	},
+	{
+		"label": "Contact / 事務局へのお問い合わせ",
+		"link": "https://docs.google.com/forms/d/e/1FAIpQLSdlYnPmz2PLG7RJ-xQAqFJ7KKT9BsNmiGKWjkBV-ECuPpphXw/viewform",
+		"external": true
+	}
+]
