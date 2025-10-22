@@ -6,16 +6,16 @@
 	{
 		"label": "About us / JEARNについて",
 		"submenu": [
-			{ "label": "JEARN", "link": "/jearn" },
-			{ "label": "理事長挨拶", "link": "/rigicho" },
-			{ "label": "iEARN", "link": "/iearn" }
+			{ "label": "JEARN", "link": "/about_us/jearn" },
+			{ "label": "理事長挨拶", "link": "/about_us/rigicho" },
+			{ "label": "iEARN", "link": "/about_us/iearn" }
 		]
 	},
 	{
 		"label": "Global PBL / 国際協働学習",
 		"submenu": [
-			{ "label": "国際協働学習とは", "link": "/pbl" },
-			{ "label": "プロジェクト一覧", "link": "/project" }
+			{ "label": "国際協働学習とは", "link": "/pbl/pbl" },
+			{ "label": "プロジェクト一覧", "link": "/pbl/pbl_projects" }
 		]
 	},
 	{
@@ -25,8 +25,8 @@
 	{
 		"label": "Publication / 出版物",
 		"submenu": [
-			{ "label": "オンラインジャーナル", "link": "/journal" },
-			{ "label": "論文", "link": "/paper" }
+			{ "label": "オンラインジャーナル", "link": "/publication/journal" },
+			{ "label": "論文", "link": "/publication/paper" }
 		]
 	},
 	{
@@ -36,18 +36,18 @@
 	{
 		"label": "Archives / アーカイブ",
 		"submenu": [
-			{ "label": "シンポジウム", "link": "/symposium" },
-			{ "label": "国際イベント", "link": "/globalevent" },
-			{ "label": "学習会", "link": "/workshop" },
-			{ "label": "記事・講演録", "link": "/article" },
-			{ "label": "プロジェクト", "link": "/previousproject" }
+			{ "label": "シンポジウム", "link": "/archives/symposium" },
+			{ "label": "国際イベント", "link": "/archives/global_event" },
+			{ "label": "学習会", "link": "/archives/workshop" },
+			{ "label": "記事・講演録", "link": "/archives/article" },
+			{ "label": "プロジェクト", "link": "/archives/previous_projects" }
 		]
 	},
 	{
 		"label": "Join us / 入会申し込み + FAQ",
 		"submenu": [
-			{ "label": "入会申し込み", "link": "/joinus" },
-			{ "label": "FAQ", "link": "/faq" }
+			{ "label": "入会申し込み", "link": "/join_us/join" },
+			{ "label": "FAQ", "link": "/join_us/faq" }
 		]
 	},
 	{
